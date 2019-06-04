@@ -19,6 +19,10 @@
 	\underline{\makebox[\ifdim\width>#1\width\else#1\fi]{#2}}
 }
 
+\newcommand\EES@value@fulltitle{%
+	\ifdefvoid{\EES@value@subtitle}{\EES@value@title}{\mbox{\EES@value@title：} \mbox{\EES@value@subtitle}}%
+}
+
 % 封面
 \renewcommand\maketitle{%
 \cleardoublepage\pagestyle{empty}
@@ -121,7 +125,7 @@
 \cleartoleftpage\pagestyle{empty}\pagenumbering{roman}\setcounter{page}{0}
 \begin{flushright}
 {\small\EES@value@docid} \\
-\fbox{\bf\EES@value@classification} \\
+\fbox{\bf\EES@value@docsecret} \\
 \CJKfamily{hei}\large~\EES@value@fulltitle
 \end{flushright}
 \vfill
