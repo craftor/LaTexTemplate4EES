@@ -1,0 +1,95 @@
+% EES-front-en.def: English front matter definitions
+% vim: ft=tex
+
+\newcommand\docattr[1]{\setkeys{docattr}{#1}}
+
+\renewcommand\maketitle{%
+\cleardoublepage\pagestyle{empty}\pagenumbering{roman}
+\noindent{\small\EES@value@docid} \\
+\hfill \fbox{\bf\EES@value@classification}
+\null\vspace{5.0cm}
+
+\begin{center}
+\sf\Huge~\EES@value@title~\\
+\huge~\EES@value@subtitle~
+\vfill
+\includegraphics[scale=0.1]{ees-logo} \\
+{\small~\EES@value@date~}\\
+\vspace{2cm} \null
+\end{center}
+}
+
+\newcommand\EES@value@fulltitle{%
+  \ifdefvoid{\EES@value@subtitle}{\EES@value@title}{\EES@value@title : \EES@value@subtitle}%
+}
+
+\newcommand\fdh[1]{\scriptsize\bf\sf #1}
+
+\OverwriteEnviron{abstract}[1][]{
+\cleardoublepage
+\begin{center}
+\normalsize
+\begin{tabularx}{\textwidth}{|X|X|}
+\thickhline
+\multicolumn{2}{|l|}{\fdh{Title}} \\
+\multicolumn{2}{|l|}{\EES@value@fulltitle} \\
+\hline
+\fdh{Report Number}                 & \fdh{Security Classification}     \\
+\EES@value@docid                    & \EES@value@classification         \\
+%\hline
+%\multicolumn{2}{|l|}{\fdh{Related Documents}} \\
+%\multicolumn{2}{|l|}{\EES@value@relatedid} \\
+\hline
+\fdh{Personal Author(s)}            & \fdh{Name of Client Organization} \\
+\EES@value@author                   & \EES@value@clientname             \\
+\hline
+\fdh{Author Contact Information}    & \fdh{Client Contact Information}  \\
+\EES@value@email                    & \EES@value@clientemail            \\
+\hline
+\fdh{Signature/Date}                & \fdh{Signature/Date}              \\
+                                    &                                   \\
+                                    &                                   \\
+\hline
+\multicolumn{2}{|c|}{\bf\sf Abstract} \\
+\multicolumn{2}{|c|}{\parbox[t]{34em}{\small\hspace{2em}\BODY}}\\
+\multicolumn{2}{|c|}{}\\
+\thickhline
+\end{tabularx}
+\end{center}
+\null\hfill\copyright~E-Elements Ltd
+}
+
+\def\EES@opt@customHdr{customHdr}
+\NewEnviron{revisions}[1][defaultHdr]{
+  \def\argtmp{#1}
+  \null\vfill
+  \begin{center}
+    Revision History\par\vspace{1ex}
+  \ifx\argtmp\EES@opt@customHdr
+    \BODY
+  \else
+    \small
+    \begin{tabular}{lllp{5cm}}
+    \thickhline
+    \bf Ver. &\bf Date & \bf Author & \bf Comments \\ \hline
+    \BODY
+    \thickhline \end{tabular}
+  \fi
+  \end{center}
+}
+
+\newcommand\backcover{
+\cleartoleftpage\pagestyle{empty}\pagenumbering{roman}\setcounter{page}{0}
+\begin{flushright}
+{\small\EES@value@docid} \\
+\fbox{\bf\EES@value@classification} \\
+\large~\EES@value@fulltitle
+\end{flushright}
+\vfill
+\begin{center}
+\includegraphics[scale=0.1]{ees-logo} \\
+\vspace{2cm} \null
+\end{center}
+}
+
+\endinput

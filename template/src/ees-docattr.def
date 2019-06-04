@@ -1,0 +1,52 @@
+% EES-docattr.def: Document attribute definitions
+% vim:ft=tex
+
+%%%% Document attributes
+\renewcommand\title[2][\EES@value@title]{% 标题
+  \def\EES@value@title{#2}
+  \def\EES@value@titlemark{\MakeUppercase{#1}}}
+\providecommand\EES@value@title{}
+
+\newcommand\subtitle[1]{\def\EES@value@subtitle{#1}} % 副标题
+\providecommand\EES@value@subtitle{}
+
+\renewcommand\author[1]{\def\EES@value@author{#1}} % 责任作者
+\providecommand\EES@value@author{}
+
+\renewcommand\date[1]{\def\EES@value@date{#1}} % 日期
+\providecommand\EES@value@date{\today}
+
+\define@key{docattr}{docid}{\def\EES@value@docid{#1}} % 编号
+\providecommand\EES@value@docid{}
+
+\define@key{docattr}{relatedid}{\def\EES@value@relatedid{#1}} % 关联文档编号
+\providecommand\EES@value@relatedid{}
+
+\define@key{docattr}{email}{\def\EES@value@email{#1}} % 责任作者联系方式
+\providecommand\EES@value@email{sales@e-elements.com}
+
+\define@key{docattr}{classification}{\def\EES@value@classification{#1}} % 密级
+\providecommand\EES@value@classification{Restricted}
+
+\define@key{docattr}{type}{\def\EES@value@doctype{#1}} % 文档类型
+\providecommand\EES@value@doctype{}
+
+\define@key{docattr}{status}{\def\EES@value@docstatus{#1}} % 文档状态
+\providecommand\EES@value@docstatus{}
+
+\define@key{docattr}{client}{\def\EES@value@clientname{#1}} % 客户单位
+\providecommand\EES@value@clientname{}
+
+\define@key{docattr}{clientemail}{\def\EES@value@clientemail{#1}} % 客户联系方式
+\providecommand\EES@value@clientemail{}
+
+\define@key{docattr}{productname}{\def\EES@value@productname{#1}} % 产品名称
+\providecommand\EES@value@productname{}
+
+\define@key{docattr}{productdesc}{\def\EES@value@productdesc{#1}} % 产品描述
+\providecommand\EES@value@productdesc{}
+
+\define@key{docattr}{productver}{\def\EES@value@productver{#1}} % 产品版本
+\providecommand\EES@value@productver{}
+
+\endinput

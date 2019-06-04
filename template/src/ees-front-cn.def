@@ -1,0 +1,88 @@
+% EES-front-cn.def: Chinese front matter definitions
+% vim: ft=tex
+
+\newcommand\docattr[1]{\setkeys{docattr}{#1}}
+
+\renewcommand\maketitle{%
+\cleardoublepage\pagestyle{empty}\pagenumbering{roman}
+\noindent{\small\EES@value@docid} \\
+\hfill \fbox{\bf\EES@value@classification}
+\null\vspace{4.0cm}
+
+\begin{center}
+\CJKfamily{hei}\Huge~\EES@value@title~\\
+\LARGE~\EES@value@subtitle~
+\vfill
+\includegraphics[scale=0.1]{EES-logo} \\
+%\CJKfamily{hei}\large 依元素科技(南京)有限公司 \\
+%{\small~\EES@value@date~}\\
+\vspace{0.3cm} \null
+\end{center}
+}
+
+\newcommand\EES@value@fulltitle{%
+ \ifdefvoid{\EES@value@subtitle}{\EES@value@title}{\mbox{\EES@value@title：} \mbox{\EES@value@subtitle}}%
+}
+
+\OverwriteEnviron{abstract}[1][]{
+\cleardoublepage
+\begin{center}
+  \normalsize\bfseries
+  \begin{tabular}{clcl} 
+    \thickhline
+    标\hfill 题 & \multicolumn{3}{p{0.68\textwidth}}{\kt\EES@value@fulltitle}
+    \\ \hline
+    编\hfill 号 & \multicolumn{1}{l}{\kt\EES@value@docid} & 密\hfill 级 & \kt\EES@value@classification \\
+    类\hfill 别 & \multicolumn{1}{l}{\kt\EES@value@doctype}  & 状\hfill 态 & \kt\EES@value@docstatus \\
+    关联文档 & \multicolumn{3}{l}{\kt\EES@value@relatedid} \\
+    \hline
+    责任作者 & \kt\EES@value@author & 客户单位 & \kt\EES@value@clientname \\
+    联系方式 & \kt\small\EES@value@email & 联系方式 & \kt\small\EES@value@clientemail\\
+    & \\
+    签\hfill 署 & \hspace{0.33\textwidth}\null & 会\hfill 签 & \hspace{0.33\textwidth}\null\\
+    & \\
+    日\hfill 期 &  & 日\hfill 期 \\  \hline
+    \multicolumn{4}{c}{摘\hspace{2em}要} \\
+    \multicolumn{4}{c}{\parbox[t]{0.9\textwidth}{\small\kt\hspace{2em}\BODY}}\\
+    \\ \thickhline
+    % \multirow{2}{*}{备\hfill 注}
+  \end{tabular}
+\end{center}
+\null\hfill{\bf\copyright 依元素科技有限公司}\hspace{0.5em}
+}
+
+\def\EES@opt@customHdr{customHdr}
+\NewEnviron{revisions}[1][defaultHdr]{
+  \def\argtmp{#1}
+  \null\vfill
+  \begin{center}
+    修订记录\par\vspace{1ex}
+  \ifx\argtmp\EES@opt@customHdr
+    \BODY
+  \else
+    \kt\small
+    \begin{tabular}{llll}
+    \thickhline
+    \bf 版本 &\bf 日期  & \bf 负责人 & \bf 备注 \\ \hline
+    \BODY
+    \thickhline \end{tabular}
+  \fi
+  \end{center}
+}
+
+\newcommand\backcover{
+\cleartoleftpage\pagestyle{empty}\pagenumbering{roman}\setcounter{page}{0}
+\begin{flushright}
+{\small\EES@value@docid} \\
+\fbox{\bf\EES@value@classification} \\
+\CJKfamily{hei}\large~\EES@value@fulltitle
+\end{flushright}
+\vfill
+\begin{center}
+\includegraphics[scale=0.1]{EES-logo} \\
+\CJKfamily{hei}\large 依元素科技有限公司 \\
+\vspace{0.3cm} \null
+\end{center}
+}
+
+\endinput

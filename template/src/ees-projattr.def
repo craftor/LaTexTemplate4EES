@@ -1,0 +1,112 @@
+% EES-docattr.def: Document attribute definitions
+% vim:ft=tex
+
+%%%% Document attributes
+\renewcommand\title[2][\EES@value@title]{% 标题
+  \def\EES@value@title{#2}
+  \def\EES@value@titlemark{\MakeUppercase{#1}}}
+\providecommand\EES@value@title{}
+
+\newcommand\subtitle[1]{\def\EES@value@subtitle{#1}} % 副标题
+\providecommand\EES@value@subtitle{}
+
+% \newcommand\docid[1]{\def\EES@value@docid{#1}} % 文档编号
+% \providecommand\EES@value@docid{}
+
+% \newcommand\docsecret[1]{\def\EES@value@docsecret{#1}} % 文档密级
+% \providecommand\EES@value@docsecret{}
+
+% \newcommand\docversion[1]{\def\EES@value@docversion{#1}} % 文档版本
+% \providecommand\EES@value@docversion{}
+
+\define@key{projattr}{docid}{\def\EES@value@docid{#1}} % 文档编号
+\providecommand\EES@value@docid{}
+
+\define@key{projattr}{docsecret}{\def\EES@value@docsecret{#1}} % 文档密级
+\providecommand\EES@value@docsecret{}
+
+\define@key{projattr}{docversion}{\def\EES@value@docversion{#1}} % 文档版本
+\providecommand\EES@value@docversion{}
+
+\define@key{projattr}{projectname}{\def\EES@value@projectname{#1}} % 项目名称
+\providecommand\EES@value@projectname{}
+
+\define@key{projattr}{projectid}{\def\EES@value@projectid{#1}} % 项目编号
+\providecommand\EES@value@projectid{}
+
+\define@key{projattr}{productname}{\def\EES@value@productname{#1}} % 产品名称
+\providecommand\EES@value@productname{}
+
+\define@key{projattr}{productid}{\def\EES@value@productid{#1}} % 产品编号
+\providecommand\EES@value@productid{}
+
+\define@key{projattr}{projectmanager}{\def\EES@value@projectmanager{#1}} % 项目经理
+\providecommand\EES@value@projectmanager{}
+
+\define@key{projattr}{projectstart}{\def\EES@value@projectstart{#1}} % 项目开始日期
+\providecommand\EES@value@projectstart{}
+
+\define@key{projattr}{projectend}{\def\EES@value@projectend{#1}} % 项目结束日期
+\providecommand\EES@value@projectend{}
+
+\define@key{projattr}{hardwaremanager}{\def\EES@value@hardwaremanager{#1}} % 硬件负责人
+\providecommand\EES@value@hardwaremanager{}
+
+\define@key{projattr}{PCBColor}{\def\EES@value@PCBColor{#1}} % PCB颜色
+\providecommand\EES@value@PCBColor{}
+
+\define@key{projattr}{PCBASample}{\def\EES@value@PCBASample{#1}} % PCBA样品
+\providecommand\EES@value@PCBASample{}
+
+\define@key{projattr}{PCBSize}{\def\EES@value@PCBSize{#1}} % PCB尺寸
+\providecommand\EES@value@PCBSize{}
+
+\define@key{projattr}{FirstCommit}{\def\EES@value@FirstCommit{#1}} % 第一确认人
+\providecommand\EES@value@FirstCommit{}
+
+\define@key{projattr}{SecondCommit}{\def\EES@value@SecondCommit{#1}} % 第二确认人
+\providecommand\EES@value@SecondCommit{}
+
+\define@key{projattr}{ThirdCommit}{\def\EES@value@ThirdCommit{#1}} % 第三确认人
+\providecommand\EES@value@ThirdCommit{}
+
+\renewcommand\author[1]{\def\EES@value@author{#1}} % 责任作者
+\providecommand\EES@value@author{}
+
+\renewcommand\date[1]{\def\EES@value@date{#1}} % 日期
+\providecommand\EES@value@date{\today}
+
+\define@key{docattr}{docid}{\def\EES@value@docid{#1}} % 编号
+\providecommand\EES@value@docid{}
+
+\define@key{docattr}{relatedid}{\def\EES@value@relatedid{#1}} % 关联文档编号
+\providecommand\EES@value@relatedid{}
+
+\define@key{docattr}{email}{\def\EES@value@email{#1}} % 责任作者联系方式
+\providecommand\EES@value@email{sales@e-elements.com}
+
+\define@key{docattr}{classification}{\def\EES@value@classification{#1}} % 密级
+\providecommand\EES@value@classification{Restricted}
+
+\define@key{docattr}{type}{\def\EES@value@doctype{#1}} % 文档类型
+\providecommand\EES@value@doctype{}
+
+\define@key{docattr}{status}{\def\EES@value@docstatus{#1}} % 文档状态
+\providecommand\EES@value@docstatus{}
+
+\define@key{docattr}{client}{\def\EES@value@clientname{#1}} % 客户单位
+\providecommand\EES@value@clientname{}
+
+\define@key{docattr}{clientemail}{\def\EES@value@clientemail{#1}} % 客户联系方式
+\providecommand\EES@value@clientemail{}
+
+\define@key{docattr}{productname}{\def\EES@value@productname{#1}} % 产品名称
+\providecommand\EES@value@productname{}
+
+\define@key{docattr}{productdesc}{\def\EES@value@productdesc{#1}} % 产品描述
+\providecommand\EES@value@productdesc{}
+
+\define@key{docattr}{productver}{\def\EES@value@productver{#1}} % 产品版本
+\providecommand\EES@value@productver{}
+
+\endinput

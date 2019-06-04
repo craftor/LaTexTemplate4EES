@@ -1,0 +1,136 @@
+
+% 页眉页脚
+% \pagestyle{fancy}
+% \lhead{依元素科技有限公司}
+% \chead{立项确认书}
+% \rhead{文档编号：\EES@value@docid}
+% \cfoot{第 \thepage 页，共 \pageref{\LastPage} 页}
+% \rfoot{}%
+% \lfoot{}
+
+% \renewcommand{\headrulewidth}{1pt}  %页眉线宽，设为0可以去页眉线
+% % \setlength{\skip\footins}{1.2cm}    %脚注与正文的距离
+% \renewcommand{\footnotesize}{}      %设置脚注字体大小
+% \renewcommand{\footrulewidth}{1pt}  %脚注线的宽度
+
+\newcommand\projattr[1]{\setkeys{projattr}{#1}}
+
+\newcommand{\wideunderline}[2][6cm]{
+	\underline{\makebox[\ifdim\width>#1\width\else#1\fi]{#2}}
+}
+
+% 封面
+\renewcommand\maketitle{%
+\cleardoublepage\pagestyle{empty}
+\begingroup
+\centering % Center all text
+
+\begin{figure}
+	\begin{minipage}{0.5\linewidth}
+		\begin{flushleft}
+			\includegraphics[width=0.5\linewidth]{EES-logo}
+		\end{flushleft}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.3\linewidth}
+		\begin{flushright}
+			\begin{tabular}{|c|c|}
+				\hline 
+				文档编号& \EES@value@docid  \\ 
+				\hline 
+				密\hfill 级& \EES@value@docsecret  \\ 
+				\hline 
+				文件版本 & \EES@value@docversion  \\ 
+				\hline 
+			\end{tabular} 
+		\end{flushright}
+	\end{minipage}
+\end{figure}
+
+
+	\vspace*{2cm}
+	\Huge{\EES@value@title}
+	\vspace*{2cm}
+		
+	\Large
+	
+	\begin{tabular}{rc}
+		项目名称：    & \wideunderline[8cm]{\EES@value@projectname}       \\
+		项目编号：    & \wideunderline[8cm]{\EES@value@projectid}        \\
+		负\hfill 责 \hfill 人： & \wideunderline[8cm]{\EES@value@projectmanager}    \\
+		立项日期：    & \wideunderline[8cm]{\EES@value@projectstart}   \\
+		完成日期：    & \wideunderline[8cm]{\EES@value@projectend}          \\
+	\end{tabular}
+
+\endgroup}
+
+\OverwriteEnviron{abstract}[1][]{
+\cleardoublepage
+\begin{center}
+\normalsize\bfseries
+	\normalsize\bfseries
+	\begin{tabular}{rlrl}
+		\hline
+		项目名称 & \multicolumn{1}{l}{\EES@value@projectname} &
+		项目编号 & {\EES@value@projectid}\\
+		产品名称 & \multicolumn{1}{l}{\EES@value@productname} &
+		产品型号 & {\EES@value@productid}\\
+		
+		\hline
+		项目负责人 & \multicolumn{1}{l}{\EES@value@projectmanager} &
+		硬件负责人 & \multicolumn{1}{l}{\EES@value@hardwaremanager} \\
+		
+		\hline			
+		PCB颜色 & \multicolumn{1}{l}{\EES@value@PCBColor} & 
+		PCB尺寸 & \multicolumn{1}{l}{\EES@value@PCBSize} \\
+		PCBA样品 & \multicolumn{3}{l}{\EES@value@PCBASample} \\
+		
+		\hline
+		项目确认 & \multicolumn{3}{l}{\EES@value@FirstCommit \quad \EES@value@SecondCommit \quad \EES@value@ThirdCommit } \\
+		\hline
+		\multicolumn{4}{c}{摘\hspace{2em}要} \\
+    	\multicolumn{4}{c}{\parbox[t]{0.9\textwidth}{\small\kt\hspace{2em}\BODY}}\\
+		\hline
+		
+	\end{tabular}
+\end{center}
+	\null\hfill{依元素科技有限公司}\hspace{3em}
+
+}
+
+\def\EES@opt@customHdr{customHdr}
+\NewEnviron{revisions}[1][defaultHdr]{
+  \def\argtmp{#1}
+  \null\vfill
+  \begin{center}
+    修订记录\par\vspace{1ex}
+  \ifx\argtmp\EES@opt@customHdr
+    \BODY
+  \else
+    \kt\small
+    \begin{tabular}{llll}
+    \thickhline
+    \bf 版本 &\bf 日期  & \bf 负责人 & \bf 备注 \\ \hline
+    \BODY
+    \thickhline \end{tabular}
+  \fi
+  \end{center}
+}
+
+\newcommand\backcover{
+\cleartoleftpage\pagestyle{empty}\pagenumbering{roman}\setcounter{page}{0}
+\begin{flushright}
+{\small\EES@value@docid} \\
+\fbox{\bf\EES@value@classification} \\
+\CJKfamily{hei}\large~\EES@value@fulltitle
+\end{flushright}
+\vfill
+\begin{center}
+\includegraphics[scale=0.1]{EES-logo} \\
+\CJKfamily{hei}\large 依元素科技有限公司 \\
+\vspace{0.3cm} \null
+\end{center}
+}
+
+
+\endinput
